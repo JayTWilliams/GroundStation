@@ -29,4 +29,17 @@
 - There exist open-source NOAA signal decoders, so little effort is required on our part in the decoding process.
 
 ## Week of 3/22/2024
-###
+### Antenna built
+- The antenna was finished over Spring break, following the newly aquired lab space in 708
+- The specs for the antenna can be found in the Fall23 folder, in the BasicSpecSheet.pdf file.
+- The datasheet promised a very wide frequency range, without supporting graphs, so it was necessary to test with the VNA to find a working frequency range and ideal places with small scattering parameters.
+- The results can be found in the Spring24 folder, titled VNAantennatest.pdf
+
+### NOAA and other CubeSats reception plans
+- In order to receive the delicate signals from satellites, roof or terrace access is required.
+- For this reason we must wait until after April 1st to take our equipment up to the terrace.
+- In the mean time, some discussion has been done on testing our own transmissions with very small power signals from an arduino.
+
+## Week of 3/29/2024
+### still waiting for terrace to open
+- In this time, this github was created for more focused timelines.
