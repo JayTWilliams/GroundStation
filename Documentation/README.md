@@ -41,5 +41,17 @@
 - In the mean time, some discussion has been done on testing our own transmissions with very small power signals from an arduino.
 
 ## Week of 3/29/2024
+### Ham Radio Licenses
+- Teams post was made to gather people interested in taking the exam and getting certified.
+- This is an absolute must for the future of this club.
+- Three books were purchased to study from over the summer.
+
 ### still waiting for terrace to open
 - In this time, this github was created for more focused timelines.
+
+### new parts
+- Some new parts were ordered due to the failure of the original LNA.
+- We decided to try again with the other LNA, as it has a DC input which is much easier to power with the bias tee that we already have.
+- The bias tee is a purely passive device, so it is less sensitive to heat and should be more resilient to soldering.
+- An N-type connector cable was also purchased so that the LNA does not have to sit directly on the antenna and can be held safely in a foam-padded box.
+- The datasheet for the LNA is in the datasheets folder, named LNA2.pdf
