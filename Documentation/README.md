@@ -1,4 +1,32 @@
 # Documentation timeline
+## Week of 3/29/2024
+### Ham Radio Licenses
+- Teams post was made to gather people interested in taking the exam and getting certified.
+- This is an absolute must for the future of this club.
+- Three books were purchased to study from over the summer.
+
+### still waiting for terrace to open
+- In this time, this github was created for more focused timelines.
+
+### new parts
+- Some new parts were ordered due to the failure of the original LNA.
+- We decided to try again with the other LNA, as it has a DC input which is much easier to power with the bias tee that we already have.
+- The bias tee is a purely passive device, so it is less sensitive to heat and should be more resilient to soldering.
+- An N-type connector cable was also purchased so that the LNA does not have to sit directly on the antenna and can be held safely in a foam-padded box.
+- The datasheet for the LNA is in the datasheets folder, named LNA2.pdf
+
+## Week of 3/22/2024
+### Antenna built
+- The antenna was finished over Spring break, following the newly aquired lab space in 708
+- The specs for the antenna can be found in the Fall23 folder, in the BasicSpecSheet.pdf file.
+- The datasheet promised a very wide frequency range, without supporting graphs, so it was necessary to test with the VNA to find a working frequency range and ideal places with small scattering parameters.
+- The results can be found in the Spring24 folder, titled VNAantennatest.pdf
+
+### NOAA and other CubeSats reception plans
+- In order to receive the delicate signals from satellites, roof or terrace access is required.
+- For this reason we must wait until after April 1st to take our equipment up to the terrace.
+- In the mean time, some discussion has been done on testing our own transmissions with very small power signals from an arduino.
+
 ## Semester start - 3/15/2024:
 ### First few weeks of the semester were spent attempting to interface with the SDR:
 - Involved troubleshooting which can be found in the SDRsetupdocs.pdf file, in Spring24.
@@ -27,31 +55,3 @@
 - On the topic of quantization, there seems to be an issue with the current program as GNURadio keeps telling me that buffer overflows are occurring, sometimes causing the baseband audio to "skip"
 - I am unsure how much this will impact the resulting image.
 - There exist open-source NOAA signal decoders, so little effort is required on our part in the decoding process.
-
-## Week of 3/22/2024
-### Antenna built
-- The antenna was finished over Spring break, following the newly aquired lab space in 708
-- The specs for the antenna can be found in the Fall23 folder, in the BasicSpecSheet.pdf file.
-- The datasheet promised a very wide frequency range, without supporting graphs, so it was necessary to test with the VNA to find a working frequency range and ideal places with small scattering parameters.
-- The results can be found in the Spring24 folder, titled VNAantennatest.pdf
-
-### NOAA and other CubeSats reception plans
-- In order to receive the delicate signals from satellites, roof or terrace access is required.
-- For this reason we must wait until after April 1st to take our equipment up to the terrace.
-- In the mean time, some discussion has been done on testing our own transmissions with very small power signals from an arduino.
-
-## Week of 3/29/2024
-### Ham Radio Licenses
-- Teams post was made to gather people interested in taking the exam and getting certified.
-- This is an absolute must for the future of this club.
-- Three books were purchased to study from over the summer.
-
-### still waiting for terrace to open
-- In this time, this github was created for more focused timelines.
-
-### new parts
-- Some new parts were ordered due to the failure of the original LNA.
-- We decided to try again with the other LNA, as it has a DC input which is much easier to power with the bias tee that we already have.
-- The bias tee is a purely passive device, so it is less sensitive to heat and should be more resilient to soldering.
-- An N-type connector cable was also purchased so that the LNA does not have to sit directly on the antenna and can be held safely in a foam-padded box.
-- The datasheet for the LNA is in the datasheets folder, named LNA2.pdf
