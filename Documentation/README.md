@@ -6,6 +6,7 @@
 - However when just making sure packets were still being sent using GQRX, the transmission seemed to periodically fade in and out in proportion to their transmission rate. This was also present in GnuRadio when plotting the FFT from just the source data, but after the WBFM block, this fading in and out disappeared.
 - More on the Frequency Xlating block, it makes more sense now to set the center frequency to half of the frequency deviation, as on GQRX it looked like a LSB signal. Upon downconversion, the LSB part of the 2FSK signal will appear higher than the center frequency, explaining the bit flip when using quadrature demod!!
 - Other than these revelations, noise is still a significant issue which appears to be interfering with bits.
+- It is also worth trying the tiny antenna that came with the arduino kit with the SDR.
 
 ## Week of 3/29/2024
 ### Ham Radio Licenses
