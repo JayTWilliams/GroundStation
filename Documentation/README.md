@@ -1,4 +1,21 @@
 # Documentation timeline
+
+## Week of 4/5/2024
+### First NOAA reception test
+- On Friday morning, the antenna was brought up to the 8th floor, but unfortunately an earthquake struck, rendering the terrace out of service due to safety concern, so a nearby room with a large window was chosen instead.
+- NOAA FM being a low power VHF signal, it was not able to get through the glass, let alone the metal plating on the roof of the school. Thus, the 15 minute wait resulted in a pure static image. There were some scan lines on the left side, showing hope for proper reception.
+- The chosen satellite for the experiment was the NOAA 18. The other satellites NOAA 15 and 19 are perfectly fine too, but NOAA 18 had the best pass at the time.
+- It is extremely difficult to find a pass that fits into schedule, that is happening while the terrace is open. Proper direction is also important, as south to east is most preferred.
+- The next best one looks to be NOAA 18, April 12th 10:29 AM.
+- Unfortunately, the best (orange) passes are late at night, when the terrace is closed.
+- These predications can be found on the N2YO website. Search for the satellite and click the link for 10-day predictions.
+
+### Arduino Reception
+- Better reception was acheived following the revelations from earlier, however still not consistent.
+- The way to resolve this now is to decimate and interpolate appropriately, and construct a decision algorithm from the samples per symbol. This is a pain to do in real time, let alone in post using MATLAB.
+- Since the CC1011 has an SMA connection, perhaps with some careful power consideration, it could be directly connected to the ground station to receive digital signals, functioning as a mini-SDR, but obviously for a fixed purpose.
+- The Tx in the code can be done purely in bits, a helpful abstraction that can be used to send things other than text, like pictures, useful for the experiment. It could also be that the pictures are pre-defined in memory, reducing the complexity.
+
 ## 4/2/2024
 ### Playing with Arduino UNO
 - Joseph Chico and I experimented with the Arduino Tx/Rx system, with little success, but some progress.
