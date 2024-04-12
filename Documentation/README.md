@@ -3,7 +3,7 @@
 ## Week of 4/12/2024
 ### Second NOAA reception test
 - This test was slightly more successful, as sync lines and other artifacts are more clearly visible, however no detail of the Earth is visible.
-- The bandwidth of the digital filter was adjusted during capture from 2*110 kHz to 2*40 kHz, which could be responsible for the large rectangles.
+- The bandwidth of the digital filter was adjusted during capture from 2\*110 kHz to 2\*40 kHz, which could be responsible for the large rectangles.
 - Friday was a very foggy day, likely interfering with the quality of the signal.
 - Unfortunately, the terrace guards were 20 minutes late, causing me to miss about 70% of the satellite's pass.
 - The resulting image can be found in the NOAA images folder.
