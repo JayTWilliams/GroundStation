@@ -3,9 +3,15 @@
 ## Week of 4/12/2024
 ### Second NOAA reception test
 - This test was slightly more successful, as sync lines and other artifacts are more clearly visible, however no detail of the Earth is visible.
+- The bandwidth of the digital filter was adjusting during capture, which could be responsible for the large rectangles.
 - Friday was a very foggy day, likely interfering with the quality of the signal.
 - Unfortunately, the terrace guards were 20 minutes late, causing me to miss about 70% of the satellite's pass.
 - The resulting image can be found in the NOAA images folder.
+- Future passes:
+  - NOAA 15: Sunday April 14th, 7:24PM (terrace closed but it is a VERY good pass, is worth attempting indoors from 8th floor window)
+  - NOAA 18: Wednesday April 17th 11:00AM
+  - NOAA 18: Friday April 19th, 10:36AM
+- It is worth noting that the terrace has no power outlets. A long extension cord must be brought to power the radio.
 
 ## Week of 4/5/2024
 ### First NOAA reception test
