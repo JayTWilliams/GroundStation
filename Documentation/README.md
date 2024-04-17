@@ -1,5 +1,22 @@
 # Documentation timeline
 
+## Week of 4/19/2024
+### Interfacing with GNURadio
+- Since there seems to be a lack of built-in processes for data handling in GNURadio, and associated documentation, some C programming was necessary to process bits.
+- I learned about a FIFO file, aka a named pipe, which is useable on UNIX systems for inter-process communications, perfect for this application.
+- The goal is to gather the extracted bits from GNURadio, using a file sink block that writes into a FIFO file to be read by a C program.
+- So far, I have GNURadio set to pack the 8 bits into a byte (regardless of phase), and write the bytes to the FIFO file.
+- The C program then treats these values as unsigned chars, and prints them to the terminal, occasionally getting the desired "Hello World" message when phases line up.
+- For this specific application, an approach may be to detect when the sync word begins, set up a fixed-length buffer to store the incoming bits (including the sync word), and then remove the sync word to extract the data.
+- The issue with this approach is that sometimes the first few bits of the sync word get lost due to the symbol sync block in GNURadio taking some time to lock, potentially causing more phase issues.
+- It may be worth having the symbol sync and raw bits side by side, so I could trigger off of the raw bits and then used the synced data for analysis.
+
+### Third NOAA reception test (4/14/2024)
+- Once again, only static.
+- There was some strange interference at the band of interest, noticeable on GQRX, causing strange rippling in the image.
+- I am unsure of the source of this interference, but hopefully it is gone in the next test.
+- This test was performed much later in the day when the terrace was closed, so it was indoors, harming the signal, if any was even left.
+
 ## Week of 4/12/2024
 ### Second NOAA reception test
 - This test was slightly more successful, as sync lines and other artifacts are more clearly visible, however no detail of the Earth is visible.
