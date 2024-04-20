@@ -1,6 +1,21 @@
 # Documentation timeline
 
 ## Week of 4/19/2024
+### Real-Time Bit Processing
+- The final product is visible in the BitProcessing/FinalDecoder directory, as decoderV3.c
+- In summary:
+  - decoderV1 does not attempt to synchronize with the sync word that the transmitter gives, so it is a 1/8 chance that the message is readable.
+  - decoderV2 is able to sync with the sync word, using its special sequence, and then printing the resulting characters, however the length of the message is hardcoded instead of read off the transmission, awkward for sending messages of different length.
+  - decoderV3 is able to read the message length byte sent directly after the sync word, and then read that many bytes of data to print a message of any length.
+- The decoder uses a state-machine type architecture:
+  - State 0: program is waiting for a bit transition, upon which the program will transition to state 1.
+  - State 1: program is filling a buffer bit by bit, while scanning it to see if thre register contains the desired sync word, then transitioning to state 2. If no sync word is found within an arbitrary amount of bits, then it is reported as noise and the state transitions back to 0.
+  - State 2: program is filling a register with the next 8 bits, which are packed to get the length of the incoming data, then transitioning to state 3.
+  - State 3: program gets the expected length of the data, and fills up another buffer with bits until the counter reaches the expected length, upon which the bits are packed into bytes and printed to the console. Then the state transitions to 0, continuing the cycle.
+- An image of the final GNURadio block diagram and terminal result is visible in the same folder.
+- Many memory issues needed to be dealt with that I still don't fully understand, but it isn't worth discussion as it is not important to the project.
+- This will be the demo for the VIP Showcase.
+
 ### Interfacing with GNURadio
 - Since there seems to be a lack of built-in processes for data handling in GNURadio, and associated documentation, some C programming was necessary to process bits.
 - I learned about a FIFO file, aka a named pipe, which is useable on UNIX systems for inter-process communications, perfect for this application.
