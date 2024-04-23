@@ -40,7 +40,6 @@ int main(int argc, char* argv[]) {
 	unsigned char x;
 	
 	
-	//level 2 sync word in arduino code
 	int bufLength = 100;
 	unsigned char buffer[bufLength];
 	
@@ -49,6 +48,7 @@ int main(int argc, char* argv[]) {
 	unsigned char* bits = malloc(bufLength*8);
 	unsigned char* data = malloc(bufLength);
 	unsigned char syncWord[] = {1,1,0,1,0,0,1,1,1,0,0,1,0,0,0,1};
+	//level 2 sync word in arduino code
 	
 	int count = 0;
 	int STATE = 0;
