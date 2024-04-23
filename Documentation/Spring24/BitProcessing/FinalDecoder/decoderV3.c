@@ -40,6 +40,7 @@ int main(int argc, char* argv[]) {
 	unsigned char x;
 	
 	
+	//level 2 sync word in arduino code
 	int bufLength = 100;
 	unsigned char buffer[bufLength];
 	
@@ -48,7 +49,6 @@ int main(int argc, char* argv[]) {
 	unsigned char* bits = malloc(bufLength*8);
 	unsigned char* data = malloc(bufLength);
 	unsigned char syncWord[] = {1,1,0,1,0,0,1,1,1,0,0,1,0,0,0,1};
-	//level 2 sync word in arduino code
 	
 	int count = 0;
 	int STATE = 0;
@@ -56,7 +56,7 @@ int main(int argc, char* argv[]) {
 	
 	while (1) {
 	        if (read(fd, &x, sizeof(x)) == -1) {
-					return 2;
+		        return 2;
 	        }
 	        if ((x == 0) && (STATE == 0)) {
 	                count = 0;
@@ -104,10 +104,10 @@ int main(int argc, char* argv[]) {
 	                        count = 0;
 	                        STATE = 0;
 	                        btoB(data, bits, pLength);
-	                        printf("\nResult: %s", data);
+	                        printf("\nResult: %s\n", data);
 	                        pLength = 0;
 	                        //printf("\nTransition to state 0");
-	                        memset(data, 0, sizeof(data));
+	                        memset(data, 0, bufLength);
 	                        memset(bits, 0, sizeof(bits));
 	                        memset(buffer, 0, sizeof(buffer));
 	                        //printf("\n%s", buffer);
