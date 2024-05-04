@@ -1,4 +1,8 @@
 # Documentation timeline
+## Week of 5/3/2024
+- Decoder V3 had a bug that prevented proper clearing of a buffer, so the memset() function was adjusted to use a fixed buffer length instead of the sizeof function
+- The S parameter graph given in the antenna VNA test report is incorrect, the graph presents S in 10\*log10 instead of the actual 20\*log10
+
 
 ## Week of 4/19/2024
 ### Real-Time Bit Processing
