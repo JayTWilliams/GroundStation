@@ -1,8 +1,31 @@
 # Documentation timeline
+## Week of 10/23/2024
+- EncoderV2 may actually work, edit the code to alternate between new messages to verify this.
+- I asked Hausman if he has resources on models for atmospheric attenuation, and he said he would try to look for them in his textbooks and send me what he finds.
+- I looked more at the hardware side these past weeks, and thought about them from a microwaves perspective. From my microwaves class, Hausman said that we should start thinking about "distributed" circuit models when our circuits are larger than one-tenth of a quarter wavelength. Using the dielectric constant for the FR-4 material commonly used in PCBs, we get one-fortieth of a wavelength being roughly 9 millimeters. Researching parts at this frequency gives parts with dimensions longer than this, necessitating a microwave design. This also comes with increased PCB cost, as microwave circuits need to be very precisely machined so that characteristic impedances of transmission lines stay as expected.
+- Looking at datasheets for parts also showed operating temperature ranges smaller than what would be expected in LEO. To work with this, we would likely need some kind of thermal control for the electronics that is also completely thermally isolated from the experiment.
+
+## Week of 10/2/2024
+- It may be possible to set up a framework for another student to properly pass text data to GnuRadio without having to know anything about radios. What I can do is create a dummy flowgraph in GnuRadio, with the file source block and a QT GUI Time Sink, that will merely show what is being read in binary form. To show that it works, it could loop through a few different messages so that we can see if it is alternating. If it is the same message over and over again, it may be hard to determine if anything is changing.
+- Another potential reason I thought of is that I may have the 0 and 1 flipped in the 2FSK modulator. Obviously, the arduino wouldn't pick anything up if this is the case. I also noticed that my deviation frequency was half of what it should be, because the receiver code for the arduino gives fsk deviation as 47.6kHz, but analyzing the spectrum shows a deviation of exactly twice that. Even more specifically, we see a spike near the carrier, and another spike at a frquency twice the deviation lower than the carrier.
+- I wonder how I could experimentally determine which bit corresponds to which peak. Similarly, I don't think I understand how the GnuRadio block "Frequency Xlating FIR Filter" works. I put in numbers that made sense and fiddled with it a bit, and eventually it worked. The reason I used the block is because most FSK demodulators I found online used this block as an important piece, along with quadrature demod.
+
+## Week of 9/18/2024
+- A presentation was put together going over the ground station developments over the summer, and an analysis of the potential reasons that the link is not working.
+- The first step was to borrow a friend's handheld radio, to see if the SDR was transmitting. It was transmitting, but not where I expected it to. It only showed peaks where I expected the center frequency to be, and not the actual signal. The signal sits roughly at 2.5MHz at baseband, so if I were to upconvert it by setting the center frequency to 433.92MHz, I would expect to see my signal at 433.92MHz + 2.5MHz = 436.42MHz. When listening in these bands, I couldn't hear anything. This could be the result of two things. One being that somehow the SDR already knows to adjust the center frequency so that it sits in the middle of the signal's bandwidth, but I find this unlikely because from an engineering perspective this comes with many problems. The other issue could be that for some reason, the hardware we purchased specifically to expand the radio's bandwidth is not working as intended/advertised, and is cutting off our signal.
+![missingSignals](https://github.com/user-attachments/assets/203e966f-699e-419e-b08a-5677fc347b92)
+- Another issue lies in the way that data is passed to GnuRadio. What I want is to pass it a text file, and have it periodically loop it with a one-second pause in between. GnuRadio automatically loops the file, with no pause, creating an unending transmission that the arduino may not like. I tried writing a C program that would feed GnuRadio this text file with a one second delay, but it produces weird results. One program only sends the file once, and another program doesn't do anything, until you stop the program and then it sends a bunch of repetitions really fast.
+
+## Summer Updates (June-August)
+- Ham Radio licenses were obtained over the summer, so now I have a call sign and can transmit. However as far as testing within the building goes, it is a Faraday cage and signals have a very hard time getting out.
+### Attempt at Transmission
+- Two GnuRadio flowgraphs were developed over the summer, one being a simulation of transmitting and receiving, and another being an actual transmission using the SDR.
+- The goal of the simulation was to modulate and demodulate a "signal" using the same parameters that the sucessful receiver used, assuming that our arduino will hear it in the same way. The simulation works perfectly, however the actual transmission yields no results from the arduino. This is extremely hard to troubleshoot, because the arduino feels like a black box that we think expects a certain input, but is giving no results. When designing the receiver with the SDR, there was so much feedback to understand what we were doing wrong.
+- Fundamentally, we expect that the arduino wants to hear a 2FSK-modulated signal, with a certain code word at the beginning.
+
 ## Week of 5/3/2024
 - Decoder V3 had a bug that prevented proper clearing of a buffer, so the memset() function was adjusted to use a fixed buffer length instead of the sizeof function
 - The S parameter graph given in the antenna VNA test report is incorrect, the graph presents S11 in 10\*log10 instead of the correct 20\*log10
-
 
 ## Week of 4/19/2024
 ### Real-Time Bit Processing
