@@ -1,5 +1,9 @@
 # Documentation timeline
 ## Week of 10/23/2024
+- Transmission success! (kind of).
+  - After setting the bandwidth of the USRP sink to 5MHz, and doubling the frequency deviation, I managed to get results from the arduino. I see "Hello, World!" coming in now, albeit most transmissions are garbled, but occasionally it is clean. I also lifted the arduino off of the lab bench and onto a notebook so that the table's surface wouldn't interfere, and it gave better results.
+  - Now I need to find a way to clean up the signal. I would also like to have the periodicity of the tranmissions to be smoother, as right now it feels a little uneven. In the C code, I have it set to be 0.1*CLOCKS_PER_SECOND, which should transmit every tenth of a second. When I first run the program, it does this, but after about 6 iterations it slows down to about once per second.
+  - I will work on a formal report and presentation for this.
 - EncoderV2 may actually work, edit the code to alternate between new messages to verify this.
   - It does work lul. Verified this by editing the code to alternate between two messages. The reason I didn't see this earlier was because the same message was overlapping so it was hard to tell if anything was changing. The only thing I am uncomfortable with is that instead of transmitting nothing, it transmits a stream of 0s in between transmissions. This wastes a lot of power and bandwidth, so it would be better if nothing were sent. This is more of a reason why using CW would be easier.
 - I asked Hausman if he has resources on models for atmospheric attenuation, and he said he would try to look for them in his textbooks and send me what he finds.
