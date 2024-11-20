@@ -1,4 +1,8 @@
 # Documentation timeline
+## Week of 11/20/2024
+- When looking up if GnuRadio can help us switch between Tx and Rx, a stackoverflow answer was helpful. For a half-duplex communication link, we can set both the USRP source and sink blocks to the same antenna. When we transmit, the USRP will automatically pause its reception. This makes switching between the two states much easier to the point of abstraction.
+- The only step left is to get a better method of inputting data, because at the moment when no data is transmitted, a constant sequence of '0' is being sent. Also the counting is messy.
+
 ## Week of 10/23/2024
 - Transmission success! (kind of).
   - After setting the bandwidth of the USRP sink to 5MHz, and doubling the frequency deviation, I managed to get results from the arduino. I see "Hello, World!" coming in now, albeit most transmissions are garbled, but occasionally it is clean. I also lifted the arduino off of the lab bench and onto a notebook so that the table's surface wouldn't interfere, and it gave better results.
