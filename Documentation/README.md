@@ -3,7 +3,9 @@
 - I have settled on creating out-of-tree (OOT) modules in GnuRadio to accomplish proper data delivery. The idea is to copy the source code of the basic "file source" block, and simply add a parameter that allows it to periodically sleep and not transmit anything.
 - This will allow us to switch between Tx and Rx properly, as well as be more efficient with power and bandwidth. A constrant stream of '0' means that we are transmitting a constant frequency for no reason, wasting power and clogging up the available spectrum for other users.
 - GnuRadio provides a guide on how to do this, titled "Creating C++ OOT with gr-modtool" : https://wiki.gnuradio.org/index.php?title=Creating_C%2B%2B_OOT_with_gr-modtool
-  - The first attempt at this has been unsuccessful, meaning that it failed when trying to compile it with CMake, as per the instructions. The error was very cryptic and did not give any markers specific to the project that may have caused it.
+  - The first attempt at this has been unsuccessful, meaning that it failed when trying to compile it with CMake, as per the instructions. The error was very cryptic and did not give any markers specific to the project that may have caused it. The error is given below:
+  - ![image](https://github.com/user-attachments/assets/7b10c30c-572f-4ff5-a510-3d4e8f138ac6)
+
 
 ## Week of 11/20/2024
 - When looking up if GnuRadio can help us switch between Tx and Rx, a stackoverflow answer was helpful. For a half-duplex communication link, we can set both the USRP source and sink blocks to the same antenna. When we transmit, the USRP will automatically pause its reception. This makes switching between the two states much easier to the point of abstraction.
