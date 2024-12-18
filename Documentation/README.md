@@ -1,11 +1,19 @@
 # Documentation timeline
+## Week of 12/11/2024
+- Unfortunately I have been very late on delivering power budgets to Oscar, but a very rough estimate has been created using some theory I have picked up in my Microwaves course. The basic calculation involves Friis radio link formula, and some guessed parameters. These are the minimum received signal power (-90 dBm), and a middle-ground estimation of LEO orbit as 500 km. Using the SDR's maximum transmit power of 20 dBm, provided by the datasheet, and factoring out the 13 dBi antenna gain, we need a system gain of 16.18 dB. If this is all done on the transmitter's side, then we would need to transmit 4.15 Watts.
+- However, because the antenna is also a lossy component, it will have some reflections when trying to give it an incident voltage. This is modeled by s-parameters.
+  - Last semester we empirically obtained the s-parameters of the antenna over a bandwidth, but the attached cable was very long and contributed significantly to loss and inductance. Now that I will be the TA for EMT, I should have much more consistent access to the VNA and can make more tests.
+  - Knowing how much power is reflected is important when transmitting with significant power, because reflected power can damage previous components. If this power makes it back to an amplifier or the SDR, the internal components can break. If reflections are bad, we can purchase a circulator, which is a heavy ferrite component that only lets signals through in one direction, by applying a DC magnetic bias. It is a three-port device that can redirect reflected power to a load resistor mounted on a heatsink.
+- A presentation I made goes into more detail on this, and most of the information in it is sourced from Pozar's Microwaves chapter 14.
+
 ## Week of 11/21/2024
 - I have settled on creating out-of-tree (OOT) modules in GnuRadio to accomplish proper data delivery. The idea is to copy the source code of the basic "file source" block, and simply add a parameter that allows it to periodically sleep and not transmit anything.
 - This will allow us to switch between Tx and Rx properly, as well as be more efficient with power and bandwidth. A constrant stream of '0' means that we are transmitting a constant frequency for no reason, wasting power and clogging up the available spectrum for other users.
 - GnuRadio provides a guide on how to do this, titled "Creating C++ OOT with gr-modtool" : https://wiki.gnuradio.org/index.php?title=Creating_C%2B%2B_OOT_with_gr-modtool
   - The first attempt at this has been unsuccessful, meaning that it failed when trying to compile it with CMake, as per the instructions. The error was very cryptic and did not give any markers specific to the project that may have caused it. The error is given below:
   - ![image](https://github.com/user-attachments/assets/7b10c30c-572f-4ff5-a510-3d4e8f138ac6)
-
+  - It may be worth trying to just recompile the same "File Source" block and see if I get the same error, and start debugging from there. The issue is that I fear that name conflicts will happen, and the things I changed the most in the first attempt were just names, and extended the function parameters.
+  - Theres just so many adjustments to be made for such a simple task, and a lot of them are just guessed by looking at the code and putting in what seems to make sense.
 
 ## Week of 11/20/2024
 - When looking up if GnuRadio can help us switch between Tx and Rx, a stackoverflow answer was helpful. For a half-duplex communication link, we can set both the USRP source and sink blocks to the same antenna. When we transmit, the USRP will automatically pause its reception. This makes switching between the two states much easier to the point of abstraction.
