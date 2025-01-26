@@ -1,4 +1,11 @@
 # Documentation timeline
+
+## Week of 1/27/2024
+- Added a convenient shell script so that connecting the laptop to the SDR is easier. On the laptop, this file can be found in Documents -> SDR utilities. Simply run it in terminal as:
+
+  ``` sudo sh connectToSDR.sh ``` and enter in the password to the laptop.
+  - Please allow a bit of time for the laptop to report a ping as missing. If the SDR fails to connect, some troubleshooting is required. Refer to the SDR setup docs, which can be found in the Spring '24 documentation folder.
+
 ## Week of 12/11/2024
 - Unfortunately I have been very late on delivering power budgets to Oscar, but a very rough estimate has been created using some theory I have picked up in my Microwaves course. The basic calculation involves Friis radio link formula, and some guessed parameters. These are the minimum received signal power (-90 dBm), and a middle-ground estimation of LEO orbit as 500 km. Using the SDR's maximum transmit power of 20 dBm, provided by the datasheet, and factoring out the 13 dBi antenna gain, we need a system gain of 16.18 dB. If this is all done on the transmitter's side, then we would need to transmit 4.15 Watts.
 - However, because the antenna is also a lossy component, it will have some reflections when trying to give it an incident voltage. This is modeled by s-parameters.
