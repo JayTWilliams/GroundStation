@@ -18,7 +18,10 @@
 - This will allow us to switch between Tx and Rx properly, as well as be more efficient with power and bandwidth. A constrant stream of '0' means that we are transmitting a constant frequency for no reason, wasting power and clogging up the available spectrum for other users.
 - GnuRadio provides a guide on how to do this, titled "Creating C++ OOT with gr-modtool" : https://wiki.gnuradio.org/index.php?title=Creating_C%2B%2B_OOT_with_gr-modtool
   - The first attempt at this has been unsuccessful, meaning that it failed when trying to compile it with CMake, as per the instructions. The error was very cryptic and did not give any markers specific to the project that may have caused it. The error is given below:
-  - ![image](https://github.com/user-attachments/assets/7b10c30c-572f-4ff5-a510-3d4e8f138ac6)
+```
+cmake: /builddir/build/BUILD/libuv-v1.47.0/src/unix/process.c:972: uv_spawn: Assertion `!(options->flags & ~(UV_PROCESS_DETACHED | UV_PROCESS_SETGID | UV_PROCESS_SETUID | UV_PROCESS_WINDOWS_HIDE | UV_PROCESS_WINDOWS_HIDE_CONSOLE | UV_PROCESS_WINDOWS_HIDE_GUI | UV_PROCESS_WINDOWS_VERBATIM_ARGUMENTS))' failed.
+Aborted (core dumped)
+```
   - It may be worth trying to just recompile the same "File Source" block and see if I get the same error, and start debugging from there. The issue is that I fear that name conflicts will happen, and the things I changed the most in the first attempt were just names, and extended the function parameters.
   - Theres just so many adjustments to be made for such a simple task, and a lot of them are just guessed by looking at the code and putting in what seems to make sense.
 
