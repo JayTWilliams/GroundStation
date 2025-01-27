@@ -5,6 +5,7 @@
 
   ``` sudo sh connectToSDR.sh ``` and enter in the password to the laptop.
   - Please allow a bit of time for the laptop to report a ping as missing. If the SDR fails to connect, some troubleshooting is required. Refer to the SDR setup docs, which can be found in the Spring '24 documentation folder.
+- I tried following the GnuRadio guide on OOT modules exactly, creating the same one they did, but the same cmake error came up. This tells me that it is likely something went wrong with the installation of dependencies. Need to look into this further.
 
 ## Week of 12/11/2024
 - Unfortunately I have been very late on delivering power budgets to Oscar, but a very rough estimate has been created using some theory I have picked up in my Microwaves course. The basic calculation involves Friis radio link formula, and some guessed parameters. These are the minimum received signal power (-90 dBm), and a middle-ground estimation of LEO orbit as 500 km. Using the SDR's maximum transmit power of 20 dBm, provided by the datasheet, and factoring out the 13 dBi antenna gain, we need a system gain of 16.18 dB. If this is all done on the transmitter's side, then we would need to transmit 4.15 Watts.
