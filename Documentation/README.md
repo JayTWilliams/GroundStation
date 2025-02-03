@@ -1,6 +1,9 @@
 # Documentation timeline
 
-## Week of 1/27/2024
+## Week of 2/3/2025
+- Tried running a completely vanilla build of the GnuRadio OOT module, and still got the same error. At this point it is probably not my fault.
+
+## Week of 1/27/2025
 - Added a convenient shell script so that connecting the laptop to the SDR is easier. On the laptop, this file can be found in Documents -> SDR utilities. Simply run it in terminal as:
 
   ``` sudo sh connectToSDR.sh ``` and enter in the password to the laptop.
