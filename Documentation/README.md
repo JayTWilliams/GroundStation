@@ -1,6 +1,14 @@
 # Documentation timeline
 ## Week of 2/10/2025
-- Tested the LNA with the VNA, and it works! It provides around 22dB of gain, which is lower than the advertised 24dB. This measurement was made using a power supply hooked to the VDD and GND pins of the LNA, set to 5V and 150mA.
+- Tested the LNA with the VNA, and it works! It provides around 22dB of gain, which is lower than the advertised 24dB. This measurement was made using a power supply hooked to the VDD and GND pins of the LNA, set to 5V and 150mA. Some figures are below:
+- <img src="https://github.com/user-attachments/assets/8f0bf2a5-ab2f-4b57-afdf-ccedac4044af" width="500"></img>
+- The device plugged into the VNA with its VDD and GND pins connected to the power supply.
+- <img src="https://github.com/user-attachments/assets/422c94a4-0079-4d61-86ee-b7a14509ec04" width="500"></img>
+- The power supply setup, with the voltage and current shown.
+- <img src="https://github.com/user-attachments/assets/9a5804d3-05f4-440f-a6fb-7186c3a7f7c1" width="500"></img>
+- The results after saving the data and running it through MatLab to get some nice figures.
+
+
 - There were some issues, however. While screwing in the VNA ports to the LNA, sometimes the power supply would short out and provide no voltage. This was concering, as the VNA is sensitive and shouldn't have any external power applied to it. Fiddling with the device and cables a bit to straighten everything out seemed to fix the issue. It may be worth redoing the soldering joints because it could be that there is a stray wire from VDD touching the chassis of the LNA.
 - Now that I have proved the LNA still works, I would like to build some circuitry that can use the 6V lead-acid battery to power the LNA. This would require a voltage drop and a current-limiter.
 - The BPF at the output of the LNA should be sufficient for the Rx RF frontend. So it would be nice to have some kind of voltage regulation circuit, along with a battery and the RF components all screwed to a board and kept inside the protective case.
