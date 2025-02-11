@@ -12,6 +12,7 @@
   - Re-did the soldering, no issues with shorting and LNA still works!
 - Now that I have proved the LNA still works, I would like to build some circuitry that can use the 6V lead-acid battery to power the LNA. This would require a voltage drop and a current-limiter.
 - The BPF at the output of the LNA should be sufficient for the Rx RF frontend. So it would be nice to have some kind of voltage regulation circuit, along with a battery and the RF components all screwed to a board and kept inside the protective case.
+- The Jackery portable power bank can supply 5V through a USB port. Thinking about using this for powering the LNA by hooking it up to a USB port with throughhole connections on a perfboard with a voltage regulator. There will also be testing done without the USB port, so it makes sense to also have a SPDT switch to flip between the modes.
 
 ## Week of 2/3/2025
 - Tried running a completely vanilla build of the GnuRadio OOT module, and still got the same error. At this point it is probably not my fault.
