@@ -1,4 +1,19 @@
 # Documentation timeline
+## Week of 2/25/2025
+- I ordered some new SMA cables for the SDR, a voltage regulator to drive 5V and 200mA, and some throughhole USB mounts.
+  - These have arrived, and I have replaced the cables in the SDR. I also attempted to solder the voltage regulator into a makeshift mount, but was ultimately unsuccessful and may have ruined one of the chips. Two more remain, but I would rather have a professional (Dino) do the makeshift mount, or design a PCB specifically for it.
+  - Other PCB designs lay in the future for this semester, so if they can be ordered simultaneously it would be great.
+- Began work on the spectral plan and component shopping.
+  - Looking at affordable amplifiers for the ground station, it is not in the budget to get amplifiers with saturation points around 40 dBm. The ones we can afford can produce around 21 dBm, and the SDR can transmit at 20 dBm, so there is no point complicating the transmitter design on the ground.
+  - There is already a decent reciever chain on the ground, consisting of an LNA and a BPF. This may need some additional amplification based on some rudamentary calculations.
+  - Some Tx and Rx amplification will be necessary on the satellite's end, because no more Tx amplification can be done on the ground. I've found some cheap amplifiers and filters that should be easily implemented on a PCB.
+- Because soldering the fancy voltage regulator was a flop, it would be worth trying to design a circuit using a cheaper voltage regulator.
+  - Here is one that we have in the lab: https://www.ti.com/lit/ds/symlink/lm79.pdf?ts=1740476018703
+  - The datasheet provides some example circuitry, with the example of interest is the current source in figure 4.
+  - The design problem is to try to get a 5V fixed output with no more than 190mA of current. To test this, build the circuit on a breadboard and exchange a bunch of load resistors and measure the current through each one. Once the one that provides 150mA is found (should be an RL of around 33Ohms), take note and start testing lower and lower resistors to see how much current is drawn. See what happens if you try to draw more than 1.5 Amps out of it.
+  - Deliverable: A circuit schematic, an actual circuit on a breadboard, and a plot of current over load resistor.
+  - If the current source provides more than 200mA of current, it doesn't mean you failed. Just focus on generating the plot and getting a 5V fixed output.
+
 ## Week of 2/10/2025
 - Tested the LNA with the VNA, and it works! It provides around 22dB of gain, which is lower than the advertised 24dB. This measurement was made using a power supply hooked to the VDD and GND pins of the LNA, set to 5V and 150mA. Some figures are below:
   - <img src="https://github.com/user-attachments/assets/8f0bf2a5-ab2f-4b57-afdf-ccedac4044af" width="500"></img>
