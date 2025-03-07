@@ -1,4 +1,10 @@
 # Documentation timeline
+
+## Week of 3/6/2025
+- Notes from the VIP presentation (See VIP030525)
+  - The SPDT power switch on the high-level PCB block diagram should be split into separate SPST switches, with an active-low configuration. This is so that if a switch fails, it will fail to the "on" state and although the amplifier will continue to burn power, it will at least be functional. However, switches can also "latch-up"
+  - Ground-level transmit BPF is looking necessary to suppress harmonics.
+
 ## Week of 2/25/2025
 - I ordered some new SMA cables for the SDR, a voltage regulator to drive 5V and 200mA, and some throughhole USB mounts.
   - These have arrived, and I have replaced the cables in the SDR. I also attempted to solder the voltage regulator into a makeshift mount, but was ultimately unsuccessful and may have ruined one of the chips. Two more remain, but I would rather have a professional (Dino) do the makeshift mount, or design a PCB specifically for it.
