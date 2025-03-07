@@ -3,7 +3,9 @@
 ## Week of 3/6/2025
 - Notes from the VIP presentation (See VIP030525)
   - The SPDT power switch on the high-level PCB block diagram should be split into separate SPST switches, with an active-low configuration. This is so that if a switch fails, it will fail to the "on" state and although the amplifier will continue to burn power, it will at least be functional. However, switches can also "latch-up"
+    - Upon more research, transistors typically fail to short-circuits, meaning that a reflective switch (what will be used for the power switch) will fail by turning the FET/diode into a short circuit, effectively leaving the switch in a permanently "on" state.
   - Ground-level transmit BPF is looking necessary to suppress harmonics.
+    - FCC regulation defines your occupied band as the one where 99% of your signal power lies. For a 20dBm carrier and a -20dBm harmonic output, spurious signals outside of our intended band are 0.01% of our total output power, comfortably satisfying FCC regulation and thus not requiring this BPF.
   - <img src="https://github.com/user-attachments/assets/d1f164ec-558e-495a-981b-1457a603b88e" width="500"></img>
 
 
