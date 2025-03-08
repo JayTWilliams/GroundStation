@@ -7,6 +7,11 @@
   - Ground-level transmit BPF is looking necessary to suppress harmonics.
     - FCC regulation defines your occupied band as the one where 99% of your signal power lies. For a 20dBm carrier and a -20dBm harmonic output, spurious signals outside of our intended band are 0.01% of our total output power, comfortably satisfying FCC regulation and thus not requiring this BPF.
   - <img src="https://github.com/user-attachments/assets/d1f164ec-558e-495a-981b-1457a603b88e" width="500"></img>
+- The Altium circuit schematic is almost finished, and all that is left is to add the power circuitry. I would like to perform more tests with the voltage regulators, because it is somewhat unclear how the different output voltages are selected.
+- Some changes were made to the circuit:
+    - Upon trying to connect the Tx and Rx lines to the single coax port, I realized that there needs to be a switch so that power is distributed correctly, and so the ports are matched. Thus, another of the same switch was added between the coax connection and the Rx and Tx lines. This prompted a discussion on if the output switch was necessary, and if we could get away with using a power divider. A quick conclusion was reached that dividing the power of the already weak incoming signal power is unacceptable.
+    - The more I look at the circuit, the more it bothers me that there is an LNA being used in saturation to transmit a signal. It just seems improper and not what the LNA was designed for. Our use case still sits well below the absolute maximum ratings, but it seems like bad design. There is an amplifier (PHA-202+) that can get us up to a 30dBm (1W) output power, but it requires +11V VDD, meaning that there will be two seperate power supplies. This will also require a different RF switch to be used, as 1W of power flowing through the current one (HSWA2-30DR+) surpasses the absolute maximum rating.
+ - I need to do noise floor research.
 
 
 ## Week of 2/25/2025
