@@ -12,6 +12,11 @@
     - Upon trying to connect the Tx and Rx lines to the single coax port, I realized that there needs to be a switch so that power is distributed correctly, and so the ports are matched. Thus, another of the same switch was added between the coax connection and the Rx and Tx lines. This prompted a discussion on if the output switch was necessary, and if we could get away with using a power divider. A quick conclusion was reached that dividing the power of the already weak incoming signal power is unacceptable.
     - The more I look at the circuit, the more it bothers me that there is an LNA being used in saturation to transmit a signal. It just seems improper and not what the LNA was designed for. Our use case still sits well below the absolute maximum ratings, but it seems like bad design. There is an amplifier (PHA-202+) that can get us up to a 30dBm (1W) output power, but it requires +11V VDD, meaning that there will be two seperate power supplies. This will also require a different RF switch to be used, as 1W of power flowing through the current one (HSWA2-30DR+) surpasses the absolute maximum rating.
  - I need to do noise floor research.
+   - Brilliant idea:
+   - ![image](https://github.com/user-attachments/assets/8de54f84-0ad6-4c67-8b47-e30c52519daa)
+   - https://dsp.stackexchange.com/questions/83195/what-a-sdr-can-and-cannot-tell-about-a-received-signals-power-energy
+   - Use a tranceiver (like a CC1101) to transmit two signals of different power levels. Then assuming the SDR receives linearly (it damn well should for an $1800 daughtercard) we can find this constant of proportionality. Using this constant, we can make a (very) rough estimate of the noise floor as seen by the SDR.
+
 
 
 ## Week of 2/25/2025
