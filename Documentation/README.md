@@ -1,5 +1,18 @@
 # Documentation timeline
 
+## Week of 3/10/2025
+- Performed a super basic power test with the CC1101 and SDR, the results of which are displayed below:
+- ![tone_sequence](https://github.com/user-attachments/assets/1a2cd9af-2d1f-4b69-8e68-b15108b057da)
+- ![tones(-30to-10)](https://github.com/user-attachments/assets/f72bcf1d-9bbc-4cc8-8fb9-0b19dfa551ae)
+- Each peak is spaced 10 kHz apart, with an increasing power level with increasing frequency. There is an evident linear relationship, although let it be known that the power levels are not equally spaced.
+- The first plot is the CC1101 cycling through all its power levels, and the second plot is individually running single-frequencies at various power levels.
+- These two methods very clearly give different results.
+  - One possibility could be that because of the rapid cycling over time, PSD is less concentrated in each peak.
+  - Another possibility is that because the tones are not "clean" in the sense that they turn on and off quite rapidly, which could also contribute to a lower PSD.
+    - This is supported by the fact that the individually transmitted peaks are higher than the cycled ones.
+
+
+
 ## Week of 3/6/2025
 - Notes from the VIP presentation (See VIP030525)
   - The SPDT power switch on the high-level PCB block diagram should be split into separate SPST switches, with an active-low configuration. This is so that if a switch fails, it will fail to the "on" state and although the amplifier will continue to burn power, it will at least be functional. However, switches can also "latch-up"
