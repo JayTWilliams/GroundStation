@@ -1,5 +1,10 @@
 # Documentation timeline
 
+## Week of 3/31/2025
+- Finished PCB schematic, need to double check that all parts are avaliable. A single inductor on the Tx amplifier will need to come from coil craft, but all other parts should be available from Mouser.
+- Need to due the layout soon, but need to verify the PCB with someone more familiar with Altium to make sure that it is layout ready.
+- Something to note, is that no RF switches were available from minicircuits that fit our specifications exactly, so the compromise is to use a switch with the understanding that if Tx is on when it shouldn't be, the switch will break.
+
 ## Week of 3/10/2025
 - Performed a super basic power test with the CC1101 and SDR, the results of which are displayed below:
 - ![tone_sequence](https://github.com/user-attachments/assets/1a2cd9af-2d1f-4b69-8e68-b15108b057da)
