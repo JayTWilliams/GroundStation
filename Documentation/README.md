@@ -8,6 +8,7 @@
     - Separate boards will also allow for better layouts, and the current design requires an extra wire connecting two 3V3 vias. This leads to bad inductance.
   - Transmission lines should be properly impedance matched. Using the greater than one-fourtieth of a wavelength rule of thumb to start thinking about distributed models, the circuit's transmission lines sit at around a one-twentieth of a wavelength in length. Because of this, the lines are worth simulating in ADS with the S-parameters of the associated devices. The high transmit power of the PHA-202+ will cause serious reflections if the lines are not properly matched.
   - All of the passive components need to be double-checked for tolerances regarding maximum voltage and current. During testing of a voltage regulator, a typical breadboard 30-ohm resistor burned out immediately when 11 Volts was applied across (367mA).
+- The first prototype for the PCB is uploaded to the Spring25 folder. It contains the spectral plan, and all associated Altium files.
 
 ## Week of 3/31/2025
 - Finished PCB schematic, need to double check that all parts are avaliable. A single inductor on the Tx amplifier will need to come from coil craft, but all other parts should be available from Mouser.
