@@ -1,13 +1,19 @@
 # Documentation timeline
 
 ## Week of 4/21/2025
+- The voltage regulator (LM317) to be used on both the ground station and RF sides of communication has been mounted on a test testup:
+- <img src="https://github.com/user-attachments/assets/58a7b698-4e16-4fec-bac3-8daa7d68f305" width="500"></img>
+  - It works as intended, with the potentiometer's purpose being to tune the output voltage.
+  - The row of wire mounts on the left and right serve as power and ground connections, where the top-most connection is power, and the bottom-most connection is ground. The input is on the left side, and the output is on the right side.
+  - Attaching various load resistances at the output do not change the output voltage, meaning that the device works as intended.
+  - During testing, a typical breadboard 30-ohm resistor burned out immediately when 11 Volts was applied across (367mA).
 - PCBs and all of its components have arrived, but I need to note several issues that need to be ironed out for prototype 2:
   - Power and RF circuitry should be on separate boards.
     - Having DC lines sitting below RF lines can cause coupling, and poorer RF power transfer.
     - Having power supplies sit directly opposite of amplifiers can lead to a LOT of heat dissipation in one area, likely leading to burnout if the amplifier is operated near saturation.
     - Separate boards will also allow for better layouts, and the current design requires an extra wire connecting two 3V3 vias. This leads to bad inductance.
   - Transmission lines should be properly impedance matched. Using the greater than one-fourtieth of a wavelength rule of thumb to start thinking about distributed models, the circuit's transmission lines sit at around a one-twentieth of a wavelength in length. Because of this, the lines are worth simulating in ADS with the S-parameters of the associated devices. The high transmit power of the PHA-202+ will cause serious reflections if the lines are not properly matched.
-  - All of the passive components need to be double-checked for tolerances regarding maximum voltage and current. During testing of a voltage regulator, a typical breadboard 30-ohm resistor burned out immediately when 11 Volts was applied across (367mA).
+  - All of the passive components need to be double-checked for tolerances regarding maximum voltage and current.
 - The first prototype for the PCB is uploaded to the Spring25 folder. It contains the spectral plan, and all associated Altium files.
 
 ## Week of 3/31/2025
