@@ -12,9 +12,14 @@
     - Having DC lines sitting below RF lines can cause coupling, and poorer RF power transfer.
     - Having power supplies sit directly opposite of amplifiers can lead to a LOT of heat dissipation in one area, likely leading to burnout if the amplifier is operated near saturation.
     - Separate boards will also allow for better layouts, and the current design requires an extra wire connecting two 3V3 vias. This leads to bad inductance.
+    - Avoid double-sided designs as much as possible for RF boards.
+    - For the first test, it may be worth building two boards, but splitting up the components such that one board is for power, and another board is for ground.
   - Transmission lines should be properly impedance matched. Using the greater than one-fourtieth of a wavelength rule of thumb to start thinking about distributed models, the circuit's transmission lines sit at around a one-twentieth of a wavelength in length. Because of this, the lines are worth simulating in ADS with the S-parameters of the associated devices. The high transmit power of the PHA-202+ will cause serious reflections if the lines are not properly matched.
   - All of the passive components need to be double-checked for tolerances regarding maximum voltage and current.
 - The first prototype for the PCB is uploaded to the Spring25 folder. It contains the spectral plan, and all associated Altium files.
+- <img src="https://github.com/user-attachments/assets/83711c78-dff6-48fb-a035-656d3cebe394" width="400"></img><img src="https://github.com/user-attachments/assets/24801060-b98e-452f-ae0d-44c63768961f" width="400"></img>
+
+
 
 ## Week of 3/31/2025
 - Finished PCB schematic, need to double check that all parts are avaliable. A single inductor on the Tx amplifier will need to come from coil craft, but all other parts should be available from Mouser.
