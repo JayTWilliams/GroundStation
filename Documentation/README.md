@@ -1,5 +1,15 @@
 # Documentation timeline
 
+## Week of 4/28/2025
+- The PCB is finished!
+- <img src="https://github.com/user-attachments/assets/427e6758-1a04-4f91-8c12-50eac7fedb95" width="500"></img>
+- It doesn't work, but not all is lost! There are several problems I seem to have isolated so far:
+  - The ground pin next to 3V3 on the bottom of the PCB doesn't work. this is because I forgot to label that net as ground in Altium. I can just tie a wire from that pin to some other via with a ground connection.
+  - RF switch IC442 is non-functional. During building, it was placed incorrectly but later rotated into correct position. The solder job is a tad messy, and things could be shorting underneath. I bought more of the chip so its worth just using another one.
+  - The power supplies produce no voltage. I know that they should work because I built the same circuit out of larger components, as is visible from previous documentation. I suspect then, that this isn't because of the schematic being wrong, but the control switches are not turning on as expected. I need to verify this, as well as check the datasheets for Q1 and Q2.
+- The things that do work:
+  - Filter FL1 and switch IC441 are functional. I know this by doing a continuity test on the signal line across the switch, and also plugging the PCB into a VNA and seeing the characteristic reflection response of the filter.
+
 ## Week of 4/21/2025
 - The voltage regulator (LM317) to be used on both the ground station and RF sides of communication has been mounted on a test testup:
 - <img src="https://github.com/user-attachments/assets/58a7b698-4e16-4fec-bac3-8daa7d68f305" width="500"></img>
