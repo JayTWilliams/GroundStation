@@ -7,9 +7,11 @@
   - The ground pin next to 3V3 on the bottom of the PCB doesn't work. this is because I forgot to label that net as ground in Altium. I can just tie a wire from that pin to some other via with a ground connection.
   - RF switch IC442 is non-functional. During building, it was placed incorrectly but later rotated into correct position. The solder job is a tad messy, and things could be shorting underneath. I bought more of the chip so its worth just using another one.
   - The power supplies produce no voltage. I know that they should work because I built the same circuit out of larger components, as is visible from previous documentation. I suspect then, that this isn't because of the schematic being wrong, but the control switches are not turning on as expected. I need to verify this, as well as check the datasheets for Q1 and Q2.
-    - It could also just be that the voltage regulator expects around 12.5 volts at the input (for an 11 volt output), and with the gate voltage being 3.3 volts, the input voltage to the PCB should be at least 16 volts to overcome the threshold. The board was initially tested with 15 volts.
+    - It turns out that I designed the power switches wrong, and if 12.5 volts is at the source of the transistor, I would need at least 15.5 volts at the gate to turn the device on. Because of this, I have decided to just remove the transistors and short the connection, and leave all amplifiers powered on. The RF switches are still able to switch lines, so the PCB should still work (almost) as intended.
 - The things that do work:
   - Filter FL1 and switch IC441 are functional. I know this by doing a continuity test on the signal line across the switch, and also plugging the PCB into a VNA and seeing the characteristic reflection response of the filter.
+  - After shorting over the power switch, I found that the voltage regulators produce around the voltage I designed them to produce.
+  - One curious thing, however, is that the amplifiers seem to be drawing full power despite no signal being put through. My intuition tells me that if the output power of the amplifier is close to nothing, then it shouldn't draw power. But this could just be a misunderstanding on my part.
 
 ## Week of 4/21/2025
 - The voltage regulator (LM317) to be used on both the ground station and RF sides of communication has been mounted on a test testup:
