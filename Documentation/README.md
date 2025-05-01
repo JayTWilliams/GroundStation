@@ -12,6 +12,14 @@
   - Filter FL1 and switch IC441 are functional. I know this by doing a continuity test on the signal line across the switch, and also plugging the PCB into a VNA and seeing the characteristic reflection response of the filter.
   - After shorting over the power switch, I found that the voltage regulators produce around the voltage I designed them to produce.
   - One curious thing, however, is that the amplifiers seem to be drawing full power despite no signal being put through. My intuition tells me that if the output power of the amplifier is close to nothing, then it shouldn't draw power. But this could just be a misunderstanding on my part.
+- The receiving ground station setup is also complete:
+  - The Rx system hooked up to a VNA:
+  - <img src="https://github.com/user-attachments/assets/071c1fec-6bc2-4b80-bfac-9edb1f1606ee" width="500"></img>
+  - Extracted S-parameters:
+  - <img src="https://github.com/user-attachments/assets/bcdf8042-744c-40f0-984a-f0a652a6fd45" width="500"></img>
+
+
+
 
 ## Week of 4/21/2025
 - The voltage regulator (LM317) to be used on both the ground station and RF sides of communication has been mounted on a test testup:
