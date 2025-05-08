@@ -7,6 +7,7 @@
 - I found another huge issue, and fixing this one does not seem so straightforward. I don't even know where to begin. The issue is that my 5 volt power supply works as intended when the PCB is not plugged into a VNA, but when it is plugged in, the 5 volt power supply outputs flat 0 volts. What is even more interesting is that the 11 volt power supply works regardless of the VNA being plugged in or not.
 - Otherwise, below are the S-parameters of the Tx and Rx lines as of 5/5/2025:
   - <img src="https://github.com/user-attachments/assets/3240dffb-b501-4442-917f-5be5dbb5b77f" width="275"></img><img src="https://github.com/user-attachments/assets/961a9aa5-2582-41eb-9c2b-dd703a2a8ecd" width="250"></img>
+  - It is clearly visible that the Rx line provides no gain, indicating the amplifier is not functioning.
 
 
 
