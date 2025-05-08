@@ -1,5 +1,13 @@
 # Documentation timeline
 
+## Week of 5/5/2025
+- After more debugging, a big change to the PCB were made:
+  - I had the logic backwards on the switch IC442, so I manually scraped and cut traces with an exacto knife, and crossed paths with small wires. This fixed the logic! A picture is shown below:
+  - <img src="https://github.com/user-attachments/assets/2e5a50b1-fe50-40e7-823c-e14eecff969a" width="500"></img>
+- I found another huge issue, and fixing this one does not seem so straightforward. I don't even know where to begin. The issue is that my 5 volt power supply works as intended when the PCB is not plugged into a VNA, but when it is plugged in, the 5 volt power supply outputs flat 0 volts. What is even more interesting is that the 11 volt power supply works regardless of the VNA being plugged in or not.
+  
+
+
 ## Week of 4/28/2025
 - The PCB is finished!
 - <img src="https://github.com/user-attachments/assets/427e6758-1a04-4f91-8c12-50eac7fedb95" width="500"></img>
