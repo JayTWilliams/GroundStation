@@ -1,5 +1,12 @@
 # Documentation timeline
 
+## Week of 5/12/2025
+- I fixed the grounding issue of the LNA by flattening a piece of magnet wire (30 AWG, aka enamel wire) and placing it to connect a grounded pad and the center conductor. Pictures are shown below. The left picture has the piece of wire clearly visible, and the right picture has the chip placed over.
+- <img src="https://github.com/user-attachments/assets/d86a715e-5489-44e2-ab30-f91609fc48fc" width="275"></img><img src="https://github.com/user-attachments/assets/ad41c24e-08b8-4a2d-80cc-c941d81f293e" width="275"></img>
+- Testing the board with the VNA still produces the same problem with the voltage regulator... But! The frequency response given by the VNA is different! It aligns moreso with what I would expect on the input of an amplifier.
+
+
+
 ## Week of 5/5/2025
 - After more debugging, a big change to the PCB were made:
   - I had the logic backwards on the switch IC442, so I manually scraped and cut traces with an exacto knife, and crossed paths with small wires. This fixed the logic! A picture is shown below:
